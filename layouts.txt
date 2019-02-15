@@ -1,0 +1,7 @@
+Layout options:
+basic xy layout
+floating layout
+grid layout
+box layout
+stack layout
+page layout
