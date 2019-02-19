@@ -6,12 +6,16 @@ class TimeGuard:
     status - ...
     sleepTime - a delay for CheckTime function; it's format is minutes * seconds"""
     
-    __sleepTime = 10*60
+    __sleepTime = 10 * 60
     
-    def __init__(self, timeInt=60*60, status=False):
+    def __init__(self, timeInt=60, status=False):
         # timeInt = seconds * minutes
-        self.__timeInt = timeInt
+        self.__status = status
+        self.__timeInt = timeInt * 60
         self.__initTime = int(time.time())
+    
+    def getStatus(self):
+        return self.__status
     
     def getTimeInt(self):
         return self.__timeInt
@@ -28,7 +32,9 @@ class TimeGuard:
     # return True if timeInt has passed
     def CheckTime(self):
         curTime = int(time.time())
-        while(self.__initTime + self.__timeInt >= curTime):
-            time.sleep(self.__sleepTime)
-            curTime = int(time.time())
-        return True
+        print("Current time interval: {}".format(self.__timeInt))
+        
+        if(self.__initTime + self.__timeInt >= curTime):
+            self.__status = False
+        else:
+            self.__status = True
