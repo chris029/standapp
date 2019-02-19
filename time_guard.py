@@ -13,18 +13,14 @@ class TimeGuard:
         self.__timeInt = timeInt
         self.__initTime = int(time.time())
     
-    # timeInt getter
-    @property
-    def timeInt(self):
+    def getTimeInt(self):
         return self.__timeInt
  
-    # timeInt setter
-    @timeInt.setter
-    def timeInt(self, value):
+    def setTimeInt(self, value):
         if(value.isdigit()):
             "value is in minutes; initTime update"
             self.__initTime = int(time.time())
-            self.__timeInt = value * 60
+            self.__timeInt = int(value) * 60
         else:
             print('Error, input is not a number')
             
