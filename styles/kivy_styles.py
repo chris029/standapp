@@ -8,6 +8,9 @@ kivy.require('1.9.0')
  
 from kivy.app import App
 from kivy.uix.widget import Widget
+from kivy.lang import Builder
+
+Builder.load_file('CustomWidgetApp.kv')
  
 class CustomWidget(Widget):
     pass
@@ -30,6 +33,10 @@ kivy.require('1.9.0')
  
 from kivy.app import App
 from kivy.uix.floatlayout import FloatLayout
+from kivy.lang import Builder
+
+Builder.load_file('FloatingApp.kv')
+
  
 # A Float layout positions and sizes objects as a percentage
 # of the window size
@@ -43,7 +50,7 @@ flApp = FloatingApp()
  
 flApp.run()
  
-'''
+
  
 # ---------- KIVYTUT3.PY ----------
  
@@ -52,6 +59,9 @@ kivy.require('1.9.0')
  
 from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
+from kivy.lang import Builder
+
+Builder.load_file('GridLayoutApp.kv')
  
 # The Grid Layout organizes everything in a grid pattern
  
@@ -72,6 +82,10 @@ kivy.require('1.9.0')
  
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
+from kivy.lang import Builder
+
+Builder.load_file('BoxLayoutApp.kv')
+
  
 # With a box layout we arrange widgets in a horizontal
 # or vertical box
@@ -84,7 +98,7 @@ class BoxLayoutApp(App):
 blApp = BoxLayoutApp()
  
 blApp.run()
- 
+'''
  
 # ---------- KIVYTUT5.PY ----------
  
@@ -93,6 +107,10 @@ kivy.require('1.9.0')
  
 from kivy.app import App
 from kivy.uix.stacklayout import StackLayout
+from kivy.lang import Builder
+
+Builder.load_file('StackLayoutApp.kv')
+
  
 # A stack layout arranges widgets vertically or horizontally
 # as they best fit
