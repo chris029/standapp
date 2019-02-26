@@ -9,7 +9,7 @@ class TimeGuard:
     __sleepTime = 10 * 60
     
     def __init__(self, timeInt=60, status=False):
-        # timeInt = seconds * minutes
+        # timeInt = minutes * seconds
         self.__status = status
         self.__timeInt = timeInt * 60
         self.__initTime = int(time.time())

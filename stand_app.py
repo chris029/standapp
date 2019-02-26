@@ -2,8 +2,11 @@ from kivy.clock import Clock
 from time_guard import TimeGuard
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
+from kivy.lang import Builder
 
 timer = TimeGuard(1)
+
+Builder.load_file('StandApp.kv')
 
 class Container(BoxLayout):
     def AssignTime(self):
