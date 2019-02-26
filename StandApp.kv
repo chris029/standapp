@@ -1,40 +1,55 @@
-<Container>:
-    spacing: 10
-    padding: 10
-    columns: 2    
-    
-    Label:
-        id: animation
-        font_size: dp(40)
-        font: 'Calibri'
-        text: '[size=24]Hello[/size] &bl;World&br;'
-        markup: True
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+<ScreenManagement>:
+    transition: FadeTransition()
+    Container:
+    AnotherScreen:
         
-    BoxLayout:
-        spacing: 100
-        padding: 100
-        orientation: "vertical"
-        
-        Label:
-            id: question
-            font_size: dp(24)
-            font: 'Calibri'
-            halign: 'center'
-            valign: 'center'
-            text: 'How long would you like to sit? \n Type in minutes.'
-            
-        TextInput:
-            id: timeInput
-            font_size: dp(16)
-            font: 'Calibri'
-            multiline: False
-            hint_text: 'Type in minutes...'
-            on_text_validate: root.AssignTime()
-            
-        Button:
-            text: 'OK'
-            font: 'Calibri'
-            on_release: root.AssignTime()
                 
-        
+<Container>:
+    name: 'container'
+    BoxLayout:
+        spacing: 10
+        padding: 10
+        columns: 2    
     
+        Label:
+            id: animation
+            font_size: dp(40)
+            font: 'Calibri'
+            text: '[size=24]Hello[/size] &bl;World&br;'
+            markup: True
+        
+        BoxLayout:
+            spacing: 100
+            padding: 100
+            orientation: "vertical"
+        
+            Label:
+                id: question
+                font_size: dp(24)
+                font: 'Calibri'
+                halign: 'center'
+                valign: 'center'
+                text: 'How long would you like to sit? \n Type in minutes.'
+            
+            TextInput:
+                id: timeInput
+                font_size: dp(16)
+                font: 'Calibri'
+                multiline: False
+                hint_text: 'Type in minutes...'
+                on_text_validate: root.AssignTime()
+            
+            Button:
+                text: 'OK'
+                font: 'Calibri'
+                on_release: app.root.current = 'other'
+    
+                
+<AnotherScreen>
+    name: 'other'
+    Button:
+        on_release: app.root.current = 'container'
+        text: 'back to main'
+        font_size: dp(50)
