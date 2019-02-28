@@ -4,27 +4,26 @@
     transition: FadeTransition()
     Container:
     AnotherScreen:
-        
-                
+
+
 <Container>:
     name: 'container'
     BoxLayout:
         spacing: 10
         padding: 10
-        columns: 2    
-    
-        Label:
-            id: animation
-            font_size: dp(40)
-            font: 'Calibri'
-            text: '[size=24]Hello[/size] &bl;World&br;'
-            markup: True
-        
+        columns: 2
+
+        Image:
+            source:'sitting1.png'
+
         BoxLayout:
             spacing: 100
             padding: 100
             orientation: "vertical"
-        
+
+            source:'sitting1.png'
+            allow_stretch: True
+
             Label:
                 id: question
                 font_size: dp(24)
@@ -32,7 +31,7 @@
                 halign: 'center'
                 valign: 'center'
                 text: 'How long would you like to sit? \n Type in minutes.'
-            
+
             TextInput:
                 id: timeInput
                 font_size: dp(16)
@@ -40,16 +39,33 @@
                 multiline: False
                 hint_text: 'Type in minutes...'
                 on_text_validate: root.AssignTime()
-            
+
             Button:
                 text: 'OK'
                 font: 'Calibri'
-                on_release: app.root.current = 'other'
-    
-                
+                on_release: root.AssignTime()
+
+
 <AnotherScreen>
     name: 'other'
-    Button:
-        on_release: app.root.current = 'container'
-        text: 'back to main'
-        font_size: dp(50)
+    BoxLayout:
+        spacing: 50
+        padding: 50
+        orientation: "vertical"
+
+        Image:
+            size_hint: 1, 1.5
+            source: 'stand2.jpg'
+
+        Label:
+            id: question
+            font_size: dp(24)
+            font: 'Calibri'
+            halign: 'center'
+            valign: 'center'
+            text: 'Stand Up!'
+
+        Button:
+            on_release: app.root.current = 'container'
+            text: 'Ok, I\'m up.'
+            font_size: dp(40)

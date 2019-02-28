@@ -11,44 +11,41 @@ Builder.load_file('StandApp.kv')
 
 class AnotherScreen(Screen):
     pass
-    
-    
-    
+
+
+
 class ScreenManagement(ScreenManager):
     pass
-    
+
 
 
 class Container(Screen):
     def AssignTime(self):
         timer.setTimeInt(self.ids.timeInput.text)
-        self.ids.animation.text = "Not yet"
-        
-        
-        
+
+
+
 class StandApp(App):
 
     def build(self):
         self.title = 'StandApp'
         Clock.schedule_interval(lambda dt: self.my_callback(), 10)
-        
+
         return ScreenManagement()
-     
+
     def my_callback(self):
         app = App.get_running_app()
-        
+
         timer.CheckTime()
         if(isinstance(app.root.current_screen, Container)):
             if(timer.getStatus()):
-                app.root.current_screen.ids.animation.text = "Yeah, it works"
-            else:
-                app.root.current_screen.ids.animation.text = "Not yet"
-            
-         
-            
+                app.root.current = 'other'
+
+
+
 def main():
     app = StandApp()
     app.run()
-        
+
 if __name__ == '__main__':
     main()
